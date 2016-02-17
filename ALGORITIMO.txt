@@ -1,0 +1,30 @@
+Algoritmo Basico
+	inteiro n, cont;
+	para n = 100 ata 2000 passo 100 faca
+		declare uma arvore
+		declare uma lista
+		inicialize a arvore
+		inicialize a lista
+		para cont de 1 ate n passo 1 faca
+			sorteie um valor
+			insira o valor na arvore
+			insira o valor na lista
+		fim-para
+		para cont de 1 ate 2*n passo 1 faca
+			sorteie um valor	
+			pesquise o valor na arvore 
+			pesquise o valor na lista	
+		fim-para
+		media_arvore = cont_arvore / 2*n
+		media_lista = cont_lista / 2*n;
+		escreva n, media_arvore, media_lista
+		zerar cont_arvore
+		zerar cont_lista
+	fim-para
+fim-algoritmo
+
+OBSERVACAO: Os contadores cont_arvore e cont_lista devem
+    ser posicionados dentro do codigo da funcao de pesquisa
+    da arvore e da lista, respectivamente. Para facilitar,
+    declare estes contadores como variaveis globais.
+  
