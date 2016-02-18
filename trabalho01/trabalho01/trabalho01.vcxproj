@@ -76,7 +76,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="arvore.cpp" />
+    <ClCompile Include="listaapo.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="arvore.h" />
+    <ClInclude Include="elemento.h" />
+    <ClInclude Include="listaapo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="Debug\main.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Debug\trabalho01.log" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug\trabalho01.tlog\cl.command.1.tlog" />
+    <None Include="Debug\trabalho01.tlog\CL.read.1.tlog" />
+    <None Include="Debug\trabalho01.tlog\CL.write.1.tlog" />
+    <None Include="Debug\trabalho01.tlog\link-cvtres.read.1.tlog" />
+    <None Include="Debug\trabalho01.tlog\link-cvtres.write.1.tlog" />
+    <None Include="Debug\trabalho01.tlog\link-rc.read.1.tlog" />
+    <None Include="Debug\trabalho01.tlog\link-rc.write.1.tlog" />
+    <None Include="Debug\trabalho01.tlog\link.command.1.tlog" />
+    <None Include="Debug\trabalho01.tlog\link.read.1.tlog" />
+    <None Include="Debug\trabalho01.tlog\link.write.1.tlog" />
+    <None Include="Debug\trabalho01.tlog\trabalho01.lastbuildstate" />
+    <None Include="Debug\trabalho01.tlog\unsuccessfulbuild" />
+    <None Include="Debug\vc120.idb" />
+    <None Include="Debug\vc120.pdb" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
