@@ -1,30 +1,123 @@
-#ifndef __arvore_h
-#define __arvore_h
-
-//Interface da Árvore Binária de Busca
-#include <stdlib.h>
+#include <iostream>
+#include <conio.h>
 #include <stdio.h>
-#include "elemento.h"
+#include <stdlib.h>
 
-struct Nodo{ 
-	Elemento Item; 
-	Nodo *Esq, *Dir; 
-}; 
+struct Elemento
+{
+  int Valor;
+};
 
-typedef Nodo *TipoArvore; 
+struct Nodo
+{
+  Elemento Item;
+  Nodo *Esq, *Dir;
+};
 
-//Funções da árvore
+typedef Nodo *TArvore;
 
-void Inicializa(TipoArvore &Tree);
+//Faz o apontador da  arvore apontador para NULL
+void Inicializa(TArvore &p)
+{
+  p = NULL;
+}
 
-void Pesquisa( Elemento x, TipoArvore p);
+void InsereA(Elemento x, TArvore &p)
+{
+  if (p == NULL)
+  {
+    p = (Nodo*) malloc(sizeof(Nodo));
+    (*p).Item = x;
+    (*p).Esq = NULL;
+    (*p).Dir = NULL;
+  }
+  else
+  {
+    if (x.Valor < (*p).Item.Valor)
+      Insere(x, (*p).Esq);
+    else
+    if (x.Valor > (*p).Item.Valor)
+      Insere(x, (*p).Dir);
+    else
+	{
+		printf("O elemento ja  existe");
+		system("pause>null");
+	}
+	
+  }
+}
 
-void Insere( Elemento x, TipoArvore &p); 
+void Pesquisa(Elemento x, TArvore p)
+{
+  if (p == NULL)
+    printf("Valor nÆo encontrado");
+  else
+    if (x.Valor < (*p).Item.Valor)
+      Pesquisa(x, (*p).Esq);
+    else
+      if (x.Valor > (*p).Item.Valor)
+	Pesquisa(x, (*p).Dir);
+      else
+	printf("Valor encontrado");
+}
 
-void Antecessor(Nodo *q, TipoArvore &r); 
+void ImprimePreOrdem(TArvore p)
+{
+  if(p != NULL)
+  {
+    printf("\n%d", (*p).Item.Valor);
+    ImprimePreOrdem((*p).Esq);
+    ImprimePreOrdem((*p).Dir);
+  }
+}
 
-void Retira( Elemento x, TipoArvore &p); 
+void TrocaMaior(TArvore r, TArvore &q)
+{
+  TArvore Aux;
+  if ((*q).Dir == NULL)
+  {
+    (*r).Item.Valor = (*q).Item.Valor;
+    Aux = q; //Armazena o endereco do maior em Aux
+    q = (*q).Esq;//Pode haver ainda algum nodo a esquerda do maior
+    free(Aux);
+  }
+  else
+    TrocaMaior(r, (*q).Dir);
+}
 
-void Imprime( TipoArvore a, int nivel);
-
-#endif
+void Retira(TArvore &p, Elemento x)
+{
+  TArvore Aux, EndMaior;
+  if (p == NULL)
+    printf("Elemento não encontrado");
+  else  
+    if (x.Valor < (*p).Item.Valor) //Procura o elemento na subarvore esquerda
+	{
+		Retira((*p).Esq, x);
+	    printf<<"\n Valor retirado:" <<x.Valor;
+	}
+	else
+      if (x.Valor > (*p).Item.Valor) //Procura o elemento na subarvore direita
+	  {
+		Retira((*p).Dir, x);
+		printf<<"\n Valor retirado:" <<x.Valor;
+	  }
+	  else
+      {
+        if ((*p).Esq == NULL) //Retirando um nodo que nao tem subarvore esquerda
+        {
+  	  Aux = p;
+  	  p = (*p).Dir;
+	  free(Aux);
+        }
+        else
+  	  if ((*p).Dir == NULL) //Retirando um nodo que nao tem subarvore direita
+	  {
+	    Aux = p;
+	    p = (*p).Esq;  
+	    free(Aux);
+	  }
+	  else
+	    TrocaMaior(p, (*p).Esq);
+      }
+}
