@@ -9,9 +9,9 @@ void main()
 	for (int n = 100; n <= 2000; n++)
 	{
 		int contArvore = 0, contLista = 0;
-		//declara uma lista
+		// Declara uma lista 
 		TipoLista Lista;
-		//Declara uma árvore
+		// Declara uma árvore
 		TipoArvore Arvore;
 
 		//inicializa a lista 
