@@ -6,6 +6,7 @@
 
 // Implementação das funções da lista
 
+int contLista;
 void FLVazia(TipoLista &Lista)	{
 	Lista.Primeiro = (Celula*)malloc(sizeof(Celula));
 	Lista.Ultimo = Lista.Primeiro;
@@ -16,8 +17,8 @@ int Vazia(TipoLista Lista)	{
 	return(Lista.Ultimo == Lista.Primeiro);
 }
 
-void Insere(Elemento x, TipoLista &Lista)	{	                 	
-      (*Lista.Ultimo).Prox=(Celula*)malloc(sizeof(Celula));
+void Insere(Elemento x, TipoLista &Lista)	{
+	(*Lista.Ultimo).Prox = (Celula*)malloc(sizeof(Celula));
 	Lista.Ultimo = (*Lista.Ultimo).Prox;
 	(*Lista.Ultimo).Item = x;
 	(*Lista.Ultimo).Prox = NULL;
@@ -34,7 +35,7 @@ void Limpa(TipoLista &Lista)	{
 	Celula *aux = (*Lista.Primeiro).Prox;
 	Celula *aux_prox;
 
-	while(aux != NULL)	{
+	while (aux != NULL)	{
 		aux_prox = (*aux).Prox;
 		free(aux);
 		aux = aux_prox;
@@ -47,10 +48,13 @@ void Limpa(TipoLista &Lista)	{
 Celula *Localiza(TipoLista Lista, int Valor)	{
 	Celula *p = Lista.Primeiro;
 
-	while((*p).Prox != NULL)	{
-		if((*(*p).Prox).Item.Valor == Valor)
+	while ((*p).Prox != NULL)
+	{
+		//inserido por Vitor Tadeu 22022016
+		if (contLista++, ((*(*p).Prox).Item.Valor == Valor))
 			return(p);
 		p = (*p).Prox;
+
 	}
 	return(NULL);
 }
@@ -58,14 +62,14 @@ Celula *Localiza(TipoLista Lista, int Valor)	{
 void Retira(Celula *p, TipoLista &Lista, Elemento &Item)	{
 	Celula *q;
 
-	if(Vazia(Lista) || p == NULL || (*p).Prox == NULL)	
+	if (Vazia(Lista) || p == NULL || (*p).Prox == NULL)
 		printf("\nErro\n");
-	
+
 	else	{
 		q = (*p).Prox;
 		Item = (*q).Item;
 		(*p).Prox = (*q).Prox;
-		if((*p).Prox == NULL)
+		if ((*p).Prox == NULL)
 			Lista.Ultimo = p;
 		free(q);
 	}
@@ -77,7 +81,7 @@ void Imprime(TipoLista Lista)	{
 
 	printf(">> Elementos da Lista <<\n");
 
-	while(aux != NULL)	{
+	while (aux != NULL)	{
 		printf("Elemento %d = ", cont++);
 		printf("%d\n", (*aux).Item.Valor);
 		aux = (*aux).Prox;

@@ -31,4 +31,5 @@ void Retira(Celula *p, TipoLista &Lista, Elemento &Item);
 
 void Imprime(TipoLista Lista);
 
+Celula *Localiza(TipoLista Lista, int Valor);
 #endif

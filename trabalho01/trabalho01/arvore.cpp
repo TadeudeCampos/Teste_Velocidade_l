@@ -7,28 +7,24 @@
 
 using namespace std;
 
-extern int contArvore = 0;
+int contArvore = 0;
 void Inicializa(TipoArvore &Tree)
 {
 	Tree = NULL;
 }
 
-void Pesquisa(Elemento x, TipoArvore p)  {
-	if (p == NULL)
-		;//printf("\nRegistro nao esta na arvore\n"); 
+void Pesquisa(Elemento x, TipoArvore p)
+{
+	if (p == NULL);//printf("\nRegistro nao esta na arvore\n"); 
 	else
-		if (x.Valor <= (*p).Item.Valor)
+		if (contArvore++, (x.Valor <= (*p).Item.Valor))
 		{
 		Pesquisa(x, (*p).Esq);
-		//inserido por Vitor Tadeu 18022016
-		contArvore++;
 		}
 		else
-			if (x.Valor > (*p).Item.Valor)
+			if (contArvore++, (x.Valor > (*p).Item.Valor))
 			{
-		Pesquisa(x, (*p).Dir);
-		//inserido por Vitor Tadeu 18022016
-		contArvore++;
+				Pesquisa(x, (*p).Dir);
 			}
 }
 
@@ -39,22 +35,16 @@ void Insere(Elemento x, TipoArvore &p)  {
 		(*p).Item = x;
 		(*p).Esq = NULL;
 		(*p).Dir = NULL;
-		//inserido por Vitor Tadeu 18022016
-		contArvore++;
 	}
 	else
 		if (x.Valor <= (*p).Item.Valor)
 		{
 		Insere(x, (*p).Esq);
-		//inserido por Vitor Tadeu 18022016
-		contArvore++;
 		}
 		else
 			if (x.Valor > (*p).Item.Valor)
 			{
-				Insere(x, (*p).Dir);
-				//inserido por Vitor Tadeu 18022016
-				contArvore++;
+		Insere(x, (*p).Dir);
 			}
 }
 
