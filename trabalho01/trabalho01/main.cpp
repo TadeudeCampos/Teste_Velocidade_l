@@ -46,7 +46,7 @@ void main()
 		double mediaLista = contLista / (2.0 * n);
 		cout << n << "\t" << mediaArvore << "\t" << mediaLista << "\n";
 		//zera os contadores
-		contArvore = contLista = 0;
+		contArvore = contLista = 0; 
 	}
 	system("Pause");
 }
