@@ -5,6 +5,7 @@
 #include "listaapo.h"
 
 // Implementação das funções da lista
+int contLista;
 
 void FLVazia(TipoLista &Lista)	{
 	Lista.Primeiro = (Celula*)malloc(sizeof(Celula));
@@ -48,7 +49,7 @@ Celula *Localiza(TipoLista Lista, int Valor)	{
 	Celula *p = Lista.Primeiro;
 
 	while((*p).Prox != NULL)	{
-		if((*(*p).Prox).Item.Valor == Valor)
+		if (contLista++,(*(*p).Prox).Item.Valor == Valor)
 			return(p);
 		p = (*p).Prox;
 	}

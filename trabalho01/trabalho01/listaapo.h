@@ -25,10 +25,11 @@ void Insere(Elemento x, TipoLista &Lista);
 
 void InsereInicio(Elemento x, TipoLista &Lista);
 
-void Limpa(TipoLista &Lista) ;
+void Limpa(TipoLista &Lista);
 
 void Retira(Celula *p, TipoLista &Lista, Elemento &Item);
 
 void Imprime(TipoLista Lista);
+Celula *Localiza(TipoLista Lista, int Valor);
 
 #endif
